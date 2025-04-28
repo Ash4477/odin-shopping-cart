@@ -9,6 +9,7 @@ import minusImage from "../assets/minus.svg";
 const CONSTANTS = {
   primaryColor: "#f8604f",
   secodaryColor: "#fffcf2",
+  tertiaryColor: "#183743",
   logoImage,
   arrowImage,
   cartImage,
