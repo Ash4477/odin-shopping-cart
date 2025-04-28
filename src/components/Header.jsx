@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import { FlexDiv, ImageHolder, Image, Button } from "./UIComponents";
 
 const Container = styled.header`
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: space-between;
