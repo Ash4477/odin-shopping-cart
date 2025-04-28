@@ -8,7 +8,7 @@ const FlexDiv = styled.div`
 `;
 
 const ImageHolder = styled.div`
-  max-width: 8rem;
+  max-width: ${(props) => (props.$width ? props.$width : "8rem")};
   height: auto;
 `;
 
@@ -20,9 +20,10 @@ const Image = styled.img`
 `;
 
 const Button = styled.button`
+  width: max-content;
   font-size: 1.2rem;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: ${(props) => (props.$padding ? props.$padding : "0.5rem 1rem")};
   color: white;
   background-color: ${CONSTANTS.primaryColor};
   border: 0;
