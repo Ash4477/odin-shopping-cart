@@ -16,7 +16,7 @@ const routes = [
         element: <Shop />,
       },
       {
-        path: "contact",
+        path: "contacts",
         element: <Contact />,
       },
     ],
