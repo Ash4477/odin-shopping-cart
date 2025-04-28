@@ -1,7 +1,8 @@
 import CONSTANTS from "../data/constants";
 import styled from "styled-components";
 import Navbar from "./Navbar";
-import { FlexDiv, ImageHolder, Image, Button } from "./UIComponents";
+import { ImageHolder, Image, Button } from "./UIComponents";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.header`
   display: flex;
@@ -10,14 +11,21 @@ const Container = styled.header`
   padding: 1rem 3rem;
 `;
 
+const FlexDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${(props) => (props.$gap ? props.$gap : "")};
+`;
+
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <Container>
-      <FlexDiv>
+      <FlexDiv onClick={() => navigate("/")}>
         <ImageHolder>
           <Image src={CONSTANTS.logoImage} />
         </ImageHolder>
-        <h2 style={{ fontSize: "1.8rem" }}>SneakShop</h2>
+        <h2 style={{ fontSize: "1.8rem", cursor: "pointer" }}>SneakShop</h2>
       </FlexDiv>
       <Navbar />
       <FlexDiv $gap="1.5rem">

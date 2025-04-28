@@ -1,19 +1,15 @@
 import styled from "styled-components";
 import CONSTANTS from "../data/constants";
 
-const FlexDiv = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${(props) => (props.$gap ? props.$gap : "")};
-`;
-
 const ImageHolder = styled.div`
-  max-width: ${(props) => (props.$width ? props.$width : "8rem")};
+  width: ${(props) => (props.$width ? props.$width : "")};
+  max-height: ${(props) => (props.$height ? props.$height : "auto")};
   height: auto;
 `;
 
 const Image = styled.img`
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   cursor: pointer;
@@ -39,4 +35,4 @@ const Button = styled.button`
   }
 `;
 
-export { FlexDiv, ImageHolder, Image, Button };
+export { ImageHolder, Image, Button };
