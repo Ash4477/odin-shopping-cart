@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { ImageHolder, Image, Button } from "../components/UIComponents";
+import styled from "styled-components";
 import { mainSneakers } from "../data/sneakers";
 import CONSTANTS from "../data/constants";
 
@@ -39,6 +40,8 @@ const Underline = styled.span`
 `;
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <HeroTextDiv>
@@ -51,7 +54,9 @@ const Home = () => {
           tempora expedita consectetur tenetur veritatis eligendi. Veritatis
           laboriosam quos cum optio?
         </p>
-        <Button $padding="1rem 2rem">Explore Now</Button>
+        <Button $padding="1rem 2rem" onClick={() => navigate("/shop")}>
+          Explore Now
+        </Button>
       </HeroTextDiv>
       <HeroImageDiv>
         <ImageHolder $width="50rem">
