@@ -17,7 +17,7 @@ const FlexDiv = styled.div`
   gap: ${(props) => (props.$gap ? props.$gap : "")};
 `;
 
-const Header = () => {
+const Header = ({ openCart }) => {
   const navigate = useNavigate();
   return (
     <Container>
@@ -29,13 +29,13 @@ const Header = () => {
       </FlexDiv>
       <Navbar />
       <FlexDiv $gap="1.5rem">
-        <ImageHolder>
+        <ImageHolder onClick={() => openCart(true)}>
           <Image src={CONSTANTS.cartImage} />
         </ImageHolder>
         <ImageHolder>
           <Image src={CONSTANTS.magnifyImage} />
         </ImageHolder>
-        <Button>Log In</Button>
+        <Button onClick={() => navigate("/login")}>Log In</Button>
       </FlexDiv>
     </Container>
   );
