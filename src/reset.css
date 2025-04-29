@@ -75,3 +75,10 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* Personal */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
