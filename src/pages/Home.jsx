@@ -49,7 +49,7 @@ const Home = () => {
           The most <Underline>beautiful</Underline> and{" "}
           <Underline>high quality</Underline> sneakers in the whole world
         </h1>
-        <p>
+        <p style={{ color: CONSTANTS.tertiaryColor }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
           tempora expedita consectetur tenetur veritatis eligendi. Veritatis
           laboriosam quos cum optio?
@@ -59,7 +59,7 @@ const Home = () => {
         </Button>
       </HeroTextDiv>
       <HeroImageDiv>
-        <ImageHolder $width="50rem">
+        <ImageHolder>
           <Image src={mainSneakers[0].image} />
         </ImageHolder>
         <FlexDiv>

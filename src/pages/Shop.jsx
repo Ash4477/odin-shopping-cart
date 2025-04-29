@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import SneakerCard from "../components/SneakerCard";
-import { mainSneakers, otherSneakers } from "../data/sneakers";
 import { useState } from "react";
-import CONSTANTS from "../data/constants";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { mainSneakers, otherSneakers } from "../data/sneakers";
+import CONSTANTS from "../data/constants";
+import SneakerCard from "../components/SneakerCard";
 
 const Container = styled.div`
   display: flex;
@@ -44,13 +44,13 @@ const Shop = () => {
       <ShoesList>
         {mainSneakers.map((sneak, idx) => (
           <li key={idx}>
-            <SneakerCard data={sneak} />
+            <SneakerCard data={sneak} id={idx} />
           </li>
         ))}
         {showOtherSneaks
           ? otherSneakers.map((sneak, idx) => (
               <li key={idx}>
-                <SneakerCard data={sneak} />
+                <SneakerCard data={sneak} id={mainSneakers.length + idx} />
               </li>
             ))
           : null}

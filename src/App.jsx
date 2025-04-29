@@ -3,6 +3,8 @@ import CONSTANTS from "./data/constants";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   display: flex;
@@ -17,6 +19,7 @@ function App() {
       <Header />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </Container>
   );
 }

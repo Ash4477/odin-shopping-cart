@@ -1,5 +1,5 @@
 import App from "./App";
-import { Home, Shop, Contact, Error } from "./pages/pagesIndex";
+import { Home, Shop, Contact, Error, Product } from "./pages/pagesIndex";
 
 const routes = [
   {
@@ -14,6 +14,10 @@ const routes = [
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "product/:prodId",
+        element: <Product />,
       },
       {
         path: "contacts",
