@@ -1,5 +1,6 @@
 import App from "./App";
-import { Home, Shop, Contact, Error, Product } from "./pages/pagesIndex";
+import { Home, Shop, Contact, Error, Product, Login } from "./pages/pagesIndex";
+import SignUp from "./pages/SignUp";
 
 const routes = [
   {
@@ -22,6 +23,14 @@ const routes = [
       {
         path: "contacts",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
     ],
   },

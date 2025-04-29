@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import CONSTANTS from "./data/constants";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import CONSTANTS from "./data/constants";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   display: flex;
@@ -13,11 +14,21 @@ const Container = styled.div`
   background-color: ${CONSTANTS.secodaryColor};
 `;
 
+const Cart = styled.div``;
+
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const addToCart = (cartItem) => {
+    setCartItems((prevItems) => [...prevItems, cartItem]);
+  };
+
   return (
     <Container>
-      <Header />
-      <Outlet />
+      {/* {isCartOpen && <Cart />} */}
+      <Header openCart={setIsCartOpen} />
+      <Outlet addToCart={addToCart} />
       <Footer />
       <ToastContainer />
     </Container>
