@@ -30,10 +30,10 @@ const FlexDiv = styled.div`
   font-weight: bold;
 `;
 
-const SneakerCard = ({ data }) => {
+const SneakerCard = ({ data, id }) => {
   const navigate = useNavigate();
   return (
-    <Container onClick={() => navigate("/shop/:productid")}>
+    <Container onClick={() => navigate(`/product/${id}`)}>
       <ImageHolder $width="100%">
         <Image src={data.image} />
       </ImageHolder>
