@@ -65,7 +65,13 @@ const Navbar = () => {
           </StyledLink>
         </li>
         <li>
-          <StyledLink to="/shop" $active={location.pathname === "/shop"}>
+          <StyledLink
+            to="/shop"
+            $active={
+              location.pathname === "/shop" ||
+              location.pathname.startsWith("/product")
+            }
+          >
             Shop
           </StyledLink>
         </li>
