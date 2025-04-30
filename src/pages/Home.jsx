@@ -59,7 +59,7 @@ const Home = () => {
         </Button>
       </HeroTextDiv>
       <HeroImageDiv>
-        <ImageHolder>
+        <ImageHolder onClick={() => navigate(`/product/0`)}>
           <Image src={mainSneakers[0].image} />
         </ImageHolder>
         <FlexDiv>
