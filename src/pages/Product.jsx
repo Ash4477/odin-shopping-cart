@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { mainSneakers, otherSneakers } from "../data/sneakers";
 import { ImageHolder, Image, Button } from "../components/UIComponents";
 import {
@@ -90,6 +90,7 @@ const Product = () => {
   const [activeSize, setActiveSize] = useState(39);
   const [quantity, setQuantity] = useState(1);
   const { prodId } = useParams();
+  const { addToCart } = useOutletContext();
 
   const product = useMemo(() => {
     let tempProd = mainSneakers.find((s, idx) => idx === Number(prodId));
@@ -99,6 +100,30 @@ const Product = () => {
       );
     return tempProd;
   }, [prodId]);
+
+  const handleAddCartClick = () => {
+    addToCart({
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      quantity,
+      color: activeColor,
+      size: activeSize,
+    });
+    toast.success(
+      quantity === 1 ? "Item added to cart" : "Items added to cart",
+      {
+        position: "top-center",
+        style: {
+          background: CONSTANTS.primaryColor,
+          color: CONSTANTS.secodaryColor,
+          fontWeight: "bold",
+          borderRadius: "8px",
+        },
+        icon: <FaCheckCircle style={{ fontSize: "1.5rem" }} />,
+      }
+    );
+  };
 
   return (
     <Container>
@@ -177,21 +202,7 @@ const Product = () => {
               alignItems: "center",
               gap: "0.5rem",
             }}
-            onClick={() =>
-              toast.success(
-                quantity === 1 ? "Item added to cart" : "Items added to cart",
-                {
-                  position: "top-center",
-                  style: {
-                    background: CONSTANTS.primaryColor,
-                    color: CONSTANTS.secodaryColor,
-                    fontWeight: "bold",
-                    borderRadius: "8px",
-                  },
-                  icon: <FaCheckCircle style={{ fontSize: "1.5rem" }} />,
-                }
-              )
-            }
+            onClick={handleAddCartClick}
           >
             <p>ADD TO CART </p>
             <FaLocationArrow />
