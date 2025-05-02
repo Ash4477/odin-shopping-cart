@@ -17,7 +17,21 @@ const FlexDiv = styled.div`
   gap: ${(props) => (props.$gap ? props.$gap : "")};
 `;
 
-const Header = ({ openCart }) => {
+const CountBubble = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: ${CONSTANTS.primaryColor};
+  color: white;
+  border-radius: 50%;
+`;
+
+const Header = ({ openCart, cartItemsCount }) => {
   const navigate = useNavigate();
   return (
     <Container>
@@ -29,7 +43,11 @@ const Header = ({ openCart }) => {
       </FlexDiv>
       <Navbar />
       <FlexDiv $gap="1.5rem">
-        <ImageHolder onClick={() => openCart(true)}>
+        <ImageHolder
+          onClick={() => openCart(true)}
+          style={{ position: "relative" }}
+        >
+          {cartItemsCount > 0 && <CountBubble>{cartItemsCount}</CountBubble>}
           <Image src={CONSTANTS.cartImage} />
         </ImageHolder>
         <ImageHolder>

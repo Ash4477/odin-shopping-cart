@@ -42,7 +42,7 @@ function App() {
       )}
       <div onClick={isCartOpen === true ? exitCart : null}>
         <Container $inactive={isCartOpen}>
-          <Header openCart={setIsCartOpen} />
+          <Header openCart={setIsCartOpen} cartItemsCount={cartItems.length} />
           <Outlet context={{ addToCart }} />
           <Footer />
           <ToastContainer />
